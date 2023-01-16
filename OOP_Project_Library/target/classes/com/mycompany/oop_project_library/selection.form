@@ -48,43 +48,33 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="author" min="-2" pref="122" max="-2" attributes="0"/>
-                              <Component id="category" min="-2" pref="122" max="-2" attributes="0"/>
-                              <Component id="books" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
-                              <Component id="rented_books" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="return_books" alignment="1" min="-2" pref="122" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="author" min="-2" pref="122" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="122" max="-2" attributes="0"/>
+                      <Component id="books" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                      <Component id="return_books" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="206" max="32767" attributes="0"/>
+                  <EmptySpace pref="341" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="category" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="author" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="books" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="rented_books" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="return_books" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                  <EmptySpace pref="133" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -98,30 +88,37 @@
             <Property name="text" type="java.lang.String" value="ATOA NGA LIBRARY"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="category">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Category"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="author">
           <Properties>
             <Property name="text" type="java.lang.String" value="Authors"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="authorActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="books">
           <Properties>
             <Property name="text" type="java.lang.String" value="Books"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="rented_books">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Rented Books"/>
-          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="booksActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="return_books">
           <Properties>
             <Property name="text" type="java.lang.String" value="Return Books"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="return_booksActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Category"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

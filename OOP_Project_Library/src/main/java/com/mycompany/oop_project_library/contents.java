@@ -7,17 +7,26 @@ package com.mycompany.oop_project_library;
 /**
  *
  * @author dan
+ *
  */
+
+import javax.swing.*;
 public class contents {
     
-    String arr[][]  = 
+    String Books[][]  = 
     {
         
-        {"Book Name, Author","",},
+        {"Book Name"},
         {},
         {},
         {}
     
    }; 
+    
+    String Authors[][] = {
+    
+        
+    
+    };
     
 }
