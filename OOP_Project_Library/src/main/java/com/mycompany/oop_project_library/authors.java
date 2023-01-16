@@ -12,12 +12,13 @@ package com.mycompany.oop_project_library;
 import javax.swing.*;
 
 public class authors extends javax.swing.JFrame {
-
+    
+    contents c = new contents();
+    
     /** Creates new form authors */
     public authors() {
         initComponents();
-        
-        String array[] = {"Dan", "Joshua"};
+        String[] array = c.Authors;
         authors_textBox.setModel(new DefaultComboBoxModel<>(array));
     }
 

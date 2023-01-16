@@ -47,7 +47,7 @@ public class selection extends javax.swing.JFrame {
             }
         });
 
-        books.setText("Books");
+        books.setText("Rent Books");
         books.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 booksActionPerformed(evt);
@@ -121,7 +121,7 @@ public class selection extends javax.swing.JFrame {
     }//GEN-LAST:event_authorActionPerformed
 
     private void booksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booksActionPerformed
-        new books().setVisible(true);
+        new rent_books().setVisible(true);
     }//GEN-LAST:event_booksActionPerformed
 
     private void return_booksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_return_booksActionPerformed
