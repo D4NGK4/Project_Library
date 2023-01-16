@@ -13,7 +13,7 @@ package com.mycompany.oop_project_library;
 import javax.swing.*;
 public class contents {
     
-    String Books[][]  = 
+    public String Books[][]  = 
     {
         
         {"Book Name"},
@@ -23,10 +23,14 @@ public class contents {
     
    }; 
     
-    String Authors[][] = {
+    public String Authors[][] = {
     
         
     
     };
+    
+    public String usernames[] = new String[100];
+    public String passwords[] = new String[100];
+    
     
 }

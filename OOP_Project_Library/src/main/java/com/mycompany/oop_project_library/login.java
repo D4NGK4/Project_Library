@@ -11,7 +11,10 @@ package com.mycompany.oop_project_library;
 
 import javax.swing.*;
 public class login extends javax.swing.JFrame {
-
+    
+    static contents c = new contents(); 
+    static login l = new login();
+    
     /**
      * Creates new form login
      */
@@ -63,6 +66,11 @@ public class login extends javax.swing.JFrame {
         jLabel4.setText("Password: ");
 
         login_button.setText("login");
+        login_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login_buttonActionPerformed(evt);
+            }
+        });
 
         sign_up.setForeground(new java.awt.Color(51, 51, 255));
         sign_up.setText("signup");
@@ -133,9 +141,7 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sign_upMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sign_upMouseClicked
-        JFrame frame=new JFrame("new one");
-        frame = new JFrame("new frame");
-        frame.setVisible(true);
+        new sign_up().setVisible(true);
     }//GEN-LAST:event_sign_upMouseClicked
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
@@ -145,6 +151,12 @@ public class login extends javax.swing.JFrame {
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
+
+    private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
+        //if statement needed
+        new selection().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_login_buttonActionPerformed
 
     /**
      * @param args the command line arguments
