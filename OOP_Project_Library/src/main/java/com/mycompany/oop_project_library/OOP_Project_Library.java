@@ -13,8 +13,6 @@ public class OOP_Project_Library {
     public static void main(String[] args) {
         System.out.println("Hello World!");
     }
-    
-    yohoo
-    hello
+
 }
 
