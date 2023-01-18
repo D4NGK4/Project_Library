@@ -30,8 +30,12 @@ public class contents {
         "Mapeh Author 1",  "Mapeh Author 2",
     };
     
-    public String usernames[] = new String[100];
-    public String passwords[] = new String[100];
+    public String[] usernames = new String[100];
+    public String[] passwords = new String[100];
     
+    
+    
+     int increment_username = 0;
+     int increment_password = 0;
     
 }

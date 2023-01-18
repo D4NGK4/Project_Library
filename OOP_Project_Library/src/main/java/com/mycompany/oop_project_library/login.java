@@ -154,7 +154,13 @@ public class login extends javax.swing.JFrame {
 
     private void login_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_buttonActionPerformed
         //if statement needed
-        new selection().setVisible(true);
+        for (int i = 0; i < c.usernames.length;i++){
+            if (username.getText() == c.usernames[i]){
+                if (password.getText() == c.passwords[i]){
+                    new selection().setVisible(true);
+                }
+            }
+        }
         dispose();
     }//GEN-LAST:event_login_buttonActionPerformed
 

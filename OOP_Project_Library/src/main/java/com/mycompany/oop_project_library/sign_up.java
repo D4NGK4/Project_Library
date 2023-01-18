@@ -13,6 +13,10 @@ public class sign_up extends javax.swing.JFrame {
     /**
      * Creates new form sign_up
      */
+    static contents c = new contents();
+    static sign_up su = new sign_up();
+    
+    
     public sign_up() {
         initComponents();
     }
@@ -29,6 +33,14 @@ public class sign_up extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         back = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        new_user = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        new_pass = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        confirm_password = new javax.swing.JTextField();
+        signup_b = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,19 +51,88 @@ public class sign_up extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Enter username: ");
+
+        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
+        jLabel2.setText(" ATOA NGA LIBRARY Membership Sign-up");
+
+        new_user.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                new_userActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Enter password: ");
+
+        new_pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                new_passActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Confirm Password: ");
+
+        confirm_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirm_passwordActionPerformed(evt);
+            }
+        });
+
+        signup_b.setText("Signup");
+        signup_b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signup_bActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(back)
-                .addContainerGap(561, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(back))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(signup_b)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(new_user)
+                                    .addComponent(new_pass)
+                                    .addComponent(confirm_password, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(294, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(new_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(new_pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(confirm_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(signup_b)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(back)
                 .addContainerGap())
         );
@@ -84,6 +165,40 @@ public class sign_up extends javax.swing.JFrame {
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         dispose();
     }//GEN-LAST:event_backActionPerformed
+
+    private void new_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_userActionPerformed
+        
+    }//GEN-LAST:event_new_userActionPerformed
+
+    private void new_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_passActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_new_passActionPerformed
+
+    private void confirm_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirm_passwordActionPerformed
+
+    private void signup_bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signup_bActionPerformed
+        for (;;){
+            c.usernames[c.increment_username] = new_user.getText(); 
+            c.increment_username++;
+            break;
+        }
+        for (;;){
+            c.passwords[c.increment_password] = new_pass.getText(); 
+            c.increment_password++;
+            break;
+        }
+        System.out.println(c.usernames[0]);
+        System.out.println(c.passwords[0]);
+        
+        
+        
+        
+        new_user.setText("");
+        new_pass.setText("");
+        confirm_password.setText("");
+    }//GEN-LAST:event_signup_bActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,7 +237,15 @@ public class sign_up extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
+    private javax.swing.JTextField confirm_password;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField new_pass;
+    private javax.swing.JTextField new_user;
+    private javax.swing.JButton signup_b;
     // End of variables declaration//GEN-END:variables
 }
