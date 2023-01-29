@@ -3,21 +3,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.oop_project_library;
-
+import java.awt.event.ItemListener;
+import java.util.Arrays;
+import javax.swing.*;
+import java.util.*;
 /**
  *
  * @author dan
  */
 import javax.swing.*;
-public class rent_books extends javax.swing.JFrame {
+public class selection extends javax.swing.JFrame {
     static contents c = new contents();
     /**
      * Creates new form books
      */
-    public rent_books() {
+    public selection() {
         initComponents();
         
-        books_list.setModel(new DefaultComboBoxModel<>(c.Books));
+        System.out.println(c.counter);
+        books_list.setModel(new DefaultComboBoxModel<>(c.new_books));
+        select_book.setModel(new DefaultComboBoxModel<>(c.new_books));
+        rented_list.setModel(new DefaultComboBoxModel<>(c.rented_books));
+        
+        
+        
+    }
+    
+    boolean compare(){
+        for(int i = 0; i < c.rented_books.length;i++){
+            if (select_book.getSelectedItem().toString().equals(c.rented_books[i])){
+            return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -29,6 +47,13 @@ public class rent_books extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        back = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        new_book = new javax.swing.JButton();
+        rand = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -36,24 +61,117 @@ public class rent_books extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         rented_list = new javax.swing.JList<>();
-        back = new javax.swing.JButton();
+        monitor_books = new javax.swing.JButton();
+        monitor_rent = new javax.swing.JButton();
+        m_available = new javax.swing.JButton();
+        addb_panel = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        newb_title = new javax.swing.JTextField();
+        newb_author = new javax.swing.JTextField();
+        newb_year = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        newb_publisher = new javax.swing.JTextField();
+        addBook = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        newb_category = new javax.swing.JTextField();
+        rentb_panel = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        borrowers_name = new javax.swing.JTextField();
+        bprrowed_date = new javax.swing.JTextField();
+        return_date = new javax.swing.JTextField();
+        rentBook = new javax.swing.JButton();
+        select_book = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
-        jLabel1.setText("BOOKS AVAILABLE");
-
-        jScrollPane1.setViewportView(books_list);
-
-        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 24)); // NOI18N
-        jLabel2.setText("RENTED BOOKS");
-
-        jScrollPane2.setViewportView(rented_list);
-
+        back.setBackground(new java.awt.Color(255, 255, 204));
+        back.setForeground(new java.awt.Color(0, 204, 153));
         back.setText("<--back");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("jLabel7");
+
+        jLabel11.setText("jLabel11");
+
+        new_book.setBackground(new java.awt.Color(255, 204, 153));
+        new_book.setFont(new java.awt.Font("Nakula", 0, 15)); // NOI18N
+        new_book.setForeground(new java.awt.Color(255, 102, 102));
+        new_book.setText("Add A New Book");
+        new_book.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                new_bookActionPerformed(evt);
+            }
+        });
+
+        rand.setText("new list");
+        rand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                randActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("jButton4");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(java.awt.Color.pink);
+
+        jLabel1.setBackground(new java.awt.Color(153, 0, 153));
+        jLabel1.setFont(new java.awt.Font("Noto Serif CJK JP", 1, 24)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.darkGray);
+        jLabel1.setText("BOOKS AVAILABLE");
+
+        books_list.setBackground(new java.awt.Color(255, 255, 255));
+        books_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                books_listMouseClicked(evt);
+            }
+        });
+        books_list.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                books_listValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(books_list);
+
+        jLabel2.setBackground(new java.awt.Color(0, 102, 153));
+        jLabel2.setFont(new java.awt.Font("Noto Serif CJK KR", 1, 24)); // NOI18N
+        jLabel2.setForeground(java.awt.Color.darkGray);
+        jLabel2.setText("RENTED BOOKS");
+
+        rented_list.setBackground(new java.awt.Color(255, 255, 255));
+        rented_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rented_listMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(rented_list);
+
+        monitor_books.setText("View Details");
+        monitor_books.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monitor_booksActionPerformed(evt);
+            }
+        });
+
+        monitor_rent.setText("View Details");
+        monitor_rent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monitor_rentActionPerformed(evt);
+            }
+        });
+
+        m_available.setText("Make Book Available");
+        m_available.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m_availableActionPerformed(evt);
             }
         });
 
@@ -62,43 +180,208 @@ public class rent_books extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE))
-                    .addComponent(back))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap(201, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(monitor_rent)
+                                .addGap(18, 18, 18)
+                                .addComponent(m_available))
+                            .addComponent(monitor_books)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(back))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(monitor_books)
+                .addGap(70, 70, 70)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(monitor_rent)
+                    .addComponent(m_available))
+                .addContainerGap(113, Short.MAX_VALUE))
+        );
+
+        addb_panel.setBackground(java.awt.Color.pink);
+        addb_panel.setForeground(java.awt.Color.darkGray);
+
+        jLabel3.setForeground(java.awt.Color.darkGray);
+        jLabel3.setText("Enter Book Title: ");
+
+        jLabel4.setBackground(java.awt.Color.pink);
+        jLabel4.setForeground(java.awt.Color.darkGray);
+        jLabel4.setText("Enter Book's Author: ");
+
+        jLabel5.setForeground(java.awt.Color.darkGray);
+        jLabel5.setText("Enter Year Published: ");
+
+        jLabel6.setForeground(java.awt.Color.darkGray);
+        jLabel6.setText("Enter Book's Publisher:  ");
+
+        addBook.setText("Add Book");
+        addBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBookActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setForeground(java.awt.Color.darkGray);
+        jLabel13.setText("Enter Book's Category: ");
+
+        javax.swing.GroupLayout addb_panelLayout = new javax.swing.GroupLayout(addb_panel);
+        addb_panel.setLayout(addb_panelLayout);
+        addb_panelLayout.setHorizontalGroup(
+            addb_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addb_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(addb_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newb_category)
+                    .addComponent(newb_title)
+                    .addComponent(newb_author)
+                    .addComponent(newb_year)
+                    .addComponent(newb_publisher)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addb_panelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(addBook))
+                    .addGroup(addb_panelLayout.createSequentialGroup()
+                        .addGroup(addb_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel13))
+                        .addGap(0, 195, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        addb_panelLayout.setVerticalGroup(
+            addb_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addb_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newb_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newb_author, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newb_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newb_publisher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newb_category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addBook)
                 .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jLabel8.setText("Enter Borrower's Name: ");
+
+        jLabel9.setText("Enter Borrow Date; ");
+
+        jLabel10.setText("Enter Return Date: ");
+
+        rentBook.setText("Rent Book");
+        rentBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentBookActionPerformed(evt);
+            }
+        });
+
+        select_book.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        select_book.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                select_bookActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Select Book To Rent: ");
+
+        javax.swing.GroupLayout rentb_panelLayout = new javax.swing.GroupLayout(rentb_panel);
+        rentb_panel.setLayout(rentb_panelLayout);
+        rentb_panelLayout.setHorizontalGroup(
+            rentb_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rentb_panelLayout.createSequentialGroup()
+                .addGroup(rentb_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(rentb_panelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(rentBook))
+                    .addComponent(borrowers_name)
+                    .addComponent(return_date)
+                    .addComponent(bprrowed_date)
+                    .addComponent(select_book, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(rentb_panelLayout.createSequentialGroup()
+                        .addGroup(rentb_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel12))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        rentb_panelLayout.setVerticalGroup(
+            rentb_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rentb_panelLayout.createSequentialGroup()
+                .addComponent(jLabel8)
+                .addGap(4, 4, 4)
+                .addComponent(borrowers_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addGap(5, 5, 5)
+                .addComponent(bprrowed_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(return_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(select_book, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rentBook)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rentb_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(addb_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(addb_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rentb_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -106,13 +389,143 @@ public class rent_books extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        dispose();
     }//GEN-LAST:event_backActionPerformed
+
+    private void new_bookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_new_bookActionPerformed
+    }//GEN-LAST:event_new_bookActionPerformed
+
+    private void books_listValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_books_listValueChanged
+    }//GEN-LAST:event_books_listValueChanged
+
+    private void randActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randActionPerformed
+    }//GEN-LAST:event_randActionPerformed
+
+    private void rentBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentBookActionPerformed
+
+            if (compare()){
+                JOptionPane.showMessageDialog(this, "this book is already being rented");
+            }else{
+                
+            if (borrowers_name.getText().isBlank() 
+                || bprrowed_date.getText().isBlank() 
+                || return_date.getText().isBlank()){
+            
+                JOptionPane.showMessageDialog(this, "Fill up all blank fields");
+                
+                borrowers_name.setText("");
+                bprrowed_date.setText("");
+                return_date.setText("");
+            
+            }else{
+            
+                c.rented_books[c.rent_counter] = select_book.getSelectedItem().toString();
+                c.br_name[c.rent_counter] = borrowers_name.getText();
+                c.br_date[c.rent_counter] = bprrowed_date.getText();
+                c.rt_date[c.rent_counter] = return_date.getText();
+                c.rent_counter++;
+
+                rented_list.setModel(new DefaultComboBoxModel<>(c.rented_books));;}
+            
+                borrowers_name.setText("");
+                bprrowed_date.setText("");
+                return_date.setText("");
+            
+            ;}
+                System.out.println(c.rented_books[0]);
+                System.out.println(c.new_books[0]);
+                
+            
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_rentBookActionPerformed
+
+    private void addBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookActionPerformed
+        if (newb_title.getText().isBlank() 
+                || newb_author.getText().isBlank() 
+                || newb_year.getText().isBlank()
+                || newb_publisher.getText().isBlank()
+                ){
+                
+            JOptionPane.showMessageDialog(this, "Fill up all blank fields");
+            
+            newb_title.setText("");
+            newb_author.setText("");
+            newb_year.setText("");
+            newb_publisher.setText("");
+            newb_category.setText("");
+                   
+            
+        }else{
+            c.new_books[c.counter] = newb_title.getText();
+            c.new_author[c.counter] = newb_author.getText();
+            c.new_year_pub[c.counter] = newb_year.getText();
+            c.new_publisher[c.counter] = newb_publisher.getText();
+            c.new_category[c.counter] = newb_category.getText();
+            
+            c.counter++;
+            
+            books_list.setModel(new DefaultComboBoxModel<>(c.new_books));
+            select_book.setModel(new DefaultComboBoxModel<>(c.new_books));
+            
+            newb_title.setText("");
+            newb_author.setText("");
+            newb_year.setText("");
+            newb_publisher.setText("");
+            newb_category.setText("");
+            
+            }
+    }//GEN-LAST:event_addBookActionPerformed
+
+    private void books_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_books_listMouseClicked
+        c.index = books_list.getSelectedIndex();
+    }//GEN-LAST:event_books_listMouseClicked
+
+    private void monitor_booksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monitor_booksActionPerformed
+        c.index = books_list.getSelectedIndex();
+        new monitor_books().setVisible(true);
+        
+    }//GEN-LAST:event_monitor_booksActionPerformed
+
+    private void select_bookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_select_bookActionPerformed
+    }//GEN-LAST:event_select_bookActionPerformed
+
+    private void monitor_rentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monitor_rentActionPerformed
+        c.r_index = rented_list.getSelectedIndex();
+        new monitor_rented_books().setVisible(true);
+    }//GEN-LAST:event_monitor_rentActionPerformed
+
+    private void rented_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rented_listMouseClicked
+        c.r_index = rented_list.getSelectedIndex();
+    }//GEN-LAST:event_rented_listMouseClicked
+
+    private void m_availableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m_availableActionPerformed
+        int i = rented_list.getSelectedIndex();
+        System.out.println(c.rented_books[i]);
+        c.rented_books[i] = c.rented_books[i] + " [Returned]";
+        rented_list.setModel(new DefaultComboBoxModel<>(c.rented_books));
+        
+    }//GEN-LAST:event_m_availableActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        c.loop(c.new_books, c.Books);
+        c.loop2(c.new_author, c.Authors);
+        c.loop2(c.new_year_pub, c.Year_Pub);
+        c.loop2(c.new_publisher, c.Publisher);
+        c.loop2(c.new_category, c.Category);
+        
+        
+        c.rent_loop(c.br_name);
+        
+        
+        
+        
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -126,33 +539,68 @@ public class rent_books extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(rent_books.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(selection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(rent_books.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(selection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(rent_books.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(selection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(rent_books.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(selection.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new rent_books().setVisible(true);
+                new selection().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBook;
+    private javax.swing.JPanel addb_panel;
     private javax.swing.JButton back;
-    private javax.swing.JList<String> books_list;
+    public javax.swing.JList<String> books_list;
+    private javax.swing.JTextField borrowers_name;
+    private javax.swing.JTextField bprrowed_date;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton m_available;
+    private javax.swing.JButton monitor_books;
+    private javax.swing.JButton monitor_rent;
+    private javax.swing.JButton new_book;
+    private javax.swing.JTextField newb_author;
+    private javax.swing.JTextField newb_category;
+    private javax.swing.JTextField newb_publisher;
+    private javax.swing.JTextField newb_title;
+    private javax.swing.JTextField newb_year;
+    private javax.swing.JButton rand;
+    private javax.swing.JButton rentBook;
+    private javax.swing.JPanel rentb_panel;
     private javax.swing.JList<String> rented_list;
+    private javax.swing.JTextField return_date;
+    public javax.swing.JComboBox<String> select_book;
     // End of variables declaration//GEN-END:variables
 }
